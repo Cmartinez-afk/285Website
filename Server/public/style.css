@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+}
+#canvas{
+    width: 1200px;
+    margin: 0 auto;
+    transform-origin: top center;
+}
+@media(max-width: 1200px){
+    #canvas{
+        transform: scale(calc(100vw/1200));
+    }
+}
+html,body{
+    overflow-x: hidden;
+}
+body {
+    background: url(datasite_background.png) center/cover no-repeat fixed;
+    font-family: "Georgia", serif;
+    color: #4a3f35;
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    margin: 0 0 15px;
+    letter-spacing: 0.5px;
+}
+
+.paper {
+    background: #fffaf0;
+    width: min(90%, 800px);
+    padding: 40px;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    transform: rotate(-1deg);
+    border-radius: 6px;
+}
+
+.sticker {
+    position: absolute;
+    z-index: 10;
+    width: 120px;
+    transition: 0.25s ease;
+    opacity: 0.95;
+}
+
+.sticker:hover {
+    transform: scale(1.1) rotate(0deg);
+}
+
+.sticker.small { width: 90px; }
+.sticker.large { width: 160px; }
+
+.sticker.top-left { top: 250px; left: 22%; }
+.sticker.top-right { top: -20px; right: -20px; }
+.sticker.bottom-left { bottom: -75px; left: 250px; }
+.sticker.bottom-right { bottom: -70px; right: 325px; }
+
+.washi {
+    position: absolute;
+    width: 260px;
+    height: 40px;
+    opacity: 0.9;
+    z-index: 9;
+}
+
+.washi.pink { background: url(strawberry_washi.png) center/cover no-repeat; }
+.washi.green { background: url(green_washi.png) center/cover no-repeat; }
+
+.washi.top {
+    height:150px;
+    width:40px;
+    top: 250px;
+    left: 1100px;
+    transform:rotate(-48deg);
+}
+
+.washi.side {
+    top: 60%;
+    left: 150px;
+    width: 400px;
+    transform: rotate(90deg);
+}
+
+.washi.side2 {
+    top: 80%;
+    right: 225px;
+    transform: rotate(90deg);
+}
+
+.polaroid {
+    background: white;
+    padding: 10px 10px 25px;
+    width: 200px;
+    margin: 20px auto;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transform: rotate(2deg);
+    border-radius: 4px;
+}
+
+.polaroid img {
+    width: 100%;
+    display: block;
+}
+
+.polaroid span {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.recipe-card {
+    background: #fffaf0;
+    border: 2px solid #e2d5c1;
+    padding: 15px;
+    position: relative;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transform: rotate(-2deg);
+    transition: 0.25s ease;
+    border-radius: 6px;
+}
+
+.recipe-card:nth-child(even) { transform: rotate(2deg); }
+.recipe-card:nth-child(3n) { transform: rotate(-4deg); }
+
+.recipe-card:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 5;
+}
+
+.recipe-card::before {
+    content: "";
+    width: 60px;
+    height: 20px;
+    background: rgba(255,182,193,0.6);
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    border-radius: 4px;
+}
+a{
+    border:#50955f dashed;
+    color:#50955f;
+    font-family: "Patrick Hand", cursive;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 2px dashed #50955f;
+    background: transparent;
+    font-family: inherit;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 18px;
+    background: #fff5e3;
+    border: 2px solid #50955f;
+    cursor: pointer;
+    color: #50955f;
+    transition: 0.25s ease;
+    border-radius: 6px;
+}
+
+button:hover {
+    background: #50955f;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.pin {
+    width: 20px;
+    height: 20px;
+    background: rgb(123, 7, 7);
+    border-radius: 50%;
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.doodle {
+    position: absolute;
+    width: 120px;
+    opacity: 0.75;
+}
+
+.doodle.lemon { top: 40%; left: 10%; }
+.doodle.spoon { bottom: 75%; right: 20%; }
+
+.torn-look {
+    background: #fff4da;
+    padding: 20px;
+    border: 2px dashed #d6c7a8;
+    clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%);
+    border-radius: 6px;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(-2deg); }
+}
+
+.floaty {
+    animation: float 4s ease-in-out infinite;
+}
+
+.center { text-align: center; }
+.rotate-left { transform: rotate(-3deg); }
+.rotate-right { transform: rotate(3deg); }
+.shadow-soft { box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+.shadow-strong { box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .paper {
+        transform: none;
+        padding: 25px;
+    }
+
+    .sticker {
+        width: 70px;
+        opacity: 0.8;
+    }
+
+    .sticker.top-left { top: -10px; left: -10px; }
+    .sticker.top-right { top: -10px; right: -10px; }
+
+    .washi {
+        width: 120px;
+        height: 25px;
+    }
+
+    .washi.side,
+    .washi.side2 {
+        display: none;
+    }
+
+    .polaroid {
+        width: 160px;
+    }
+
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
+}
