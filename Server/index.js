@@ -13,7 +13,7 @@ app.get('/', (req,res) =>{
 });
 
 const upload = multer();
-const port = 80;
+const port = 8080;
 
 let connection = null;
 
